@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Skill Mismatch Detection - SkillMatch</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+
+        <div class="logo">
+            SkillMatch
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Dashboard
+            </a>
+
+            <a href="/employees">
+                Employees
+            </a>
+
+            <a href="/tasks">
+                Tasks
+            </a>
+
+            <a href="/matching">
+                Mismatch Detection
+            </a>
+
+            <a href="/allocations">
+                Task Allocation
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="page-container">
+
+        <div class="page-header">
+
+            <h1>
+                Skill-Mismatch Detection
+            </h1>
+
+            <p>
+                Compare employee skills with the skills required for each task.
+            </p>
+
+        </div>
+
+
+        <!-- MATCHING TABLE -->
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Employee
+                        </th>
+
+                        <th>
+                            Task
+                        </th>
+
+                        <th>
+                            Required Skills
+                        </th>
+
+                        <th>
+                            Matched Skills
+                        </th>
+
+                        <th>
+                            Match Score
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for match in matches %}
+
+                    <tr>
+
+                        <td>
+
+                            {{ match.employee_code }}
+                            -
+                            {{ match.name }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ match.task_code }}
+                            -
+                            {{ match.task_name }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ match.required_skills }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ match.matched_skills }}
+
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ match.match_score }}%
+                            </strong>
+
+                        </td>
+
+
+                        <td>
+
+                            <span class="status">
+
+                                {{ match.status }}
+
+                            </span>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            Cloud-Based Intelligent Skill-Mismatch Detection and Task Allocation System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

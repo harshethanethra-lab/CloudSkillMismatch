@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Task Allocation - SkillMatch</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION BAR
+         ========================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            SkillMatch
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Dashboard
+            </a>
+
+            <a href="/employees">
+                Employees
+            </a>
+
+            <a href="/tasks">
+                Tasks
+            </a>
+
+            <a href="/matching">
+                Mismatch Detection
+            </a>
+
+            <a href="/recommendation">
+                Recommendation
+            </a>
+
+            <a href="/allocations">
+                Task Allocation
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+         ========================================== -->
+
+    <main class="phage-container">
+
+
+        <div class="page-header">
+
+            <h1>
+                Task Allocation
+            </h1>
+
+            <p>
+                View employees allocated to project tasks
+                based on the recommendation system.
+            </p>
+
+        </div>
+
+
+        <!-- ==========================================
+             ALLOCATION TABLE
+             ========================================== -->
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Allocation ID
+                        </th>
+
+                        <th>
+                            Task
+                        </th>
+
+                        <th>
+                            Employee
+                        </th>
+
+                        <th>
+                            Match Score
+                        </th>
+
+                        <th>
+                            Missing Skills
+                        </th>
+
+                        <th>
+                            Status
+                        </th>
+
+                        <th>
+                            Allocated At
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for allocation in allocations %}
+
+                    <tr>
+
+                        <td>
+                            {{ allocation.allocation_id }}
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ allocation.task_code }}
+                            </strong>
+
+                            -
+                            {{ allocation.task_name }}
+
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ allocation.employee_code }}
+                            </strong>
+
+                            -
+                            {{ allocation.name }}
+
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ allocation.match_score }}%
+                            </strong>
+
+                        </td>
+
+
+                        <td>
+
+                            {{ allocation.missing_skills }}
+
+                        </td>
+
+
+                        <td>
+
+                            <span class="status">
+                                {{ allocation.status }}
+                            </span>
+
+                        </td>
+
+
+                        <td>
+
+                            {{ allocation.allocated_at }}
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+
+                    {% if not allocations %}
+
+                    <tr>
+
+                        <td colspan="7">
+
+                            No tasks have been allocated yet.
+
+                        </td>
+
+                    </tr>
+
+                    {% endif %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+
+    <footer>
+
+        <p>
+            Cloud-Based Intelligent Skill-Mismatch Detection
+            and Task Allocation System
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>

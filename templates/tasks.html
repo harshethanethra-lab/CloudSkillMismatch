@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Tasks - SkillMatch</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+
+        <div class="logo">
+            SkillMatch
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">Dashboard</a>
+
+            <a href="/employees">Employees</a>
+
+            <a href="/tasks">Tasks</a>
+
+            <a href="/matching">Mismatch Detection</a>
+
+            <a href="/allocations">Task Allocation</a>
+
+        </div>
+
+    </nav>
+
+
+    <main class="page-container">
+
+        <div class="page-header">
+
+            <h1>Tasks</h1>
+
+            <p>
+                Project tasks retrieved from AWS RDS MySQL.
+            </p>
+
+        </div>
+
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Task Code</th>
+                        <th>Task Name</th>
+                        <th>Priority</th>
+                        <th>Estimated Hours</th>
+                        <th>Status</th>
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for task in tasks %}
+
+                    <tr>
+
+                        <td>
+                            {{ task.task_id }}
+                        </td>
+
+                        <td>
+                            {{ task.task_code }}
+                        </td>
+
+                        <td>
+                            {{ task.task_name }}
+                        </td>
+
+                        <td>
+                            {{ task.priority }}
+                        </td>
+
+                        <td>
+                            {{ task.estimated_hours }}
+                        </td>
+
+                        <td>
+                            <span class="status">
+                                {{ task.status }}
+                            </span>
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            Cloud-Based Intelligent Skill-Mismatch Detection and Task Allocation System
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

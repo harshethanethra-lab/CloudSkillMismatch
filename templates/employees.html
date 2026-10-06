@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employees - SkillMatch</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+<nav class="navbar">
+    <div class="logo">SkillMatch</div>
+
+    <div class="nav-links">
+        <a href="/">Dashboard</a>
+        <a href="/employees">Employees</a>
+        <a href="/tasks">Tasks</a>
+        <a href="/matching">Mismatch Detection</a>
+        <a href="/recommendation">Recommendation</a>
+        <a href="/allocations">Task Allocation</a>
+    </div>
+</nav>
+
+<main class="page-container">
+
+    <div class="page-header">
+        <h1>Employees</h1>
+        <p>Employee information retrieved from AWS RDS MySQL.</p>
+    </div>
+
+    <div class="table-card">
+
+        <table>
+
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Employee Code</th>
+                    <th>Name</th>
+                    <th>Experience</th>
+                    <th>Workload</th>
+                    <th>Availability</th>
+                </tr>
+            </thead>
+
+            <tbody>
+
+                {% for employee in employees %}
+
+                <tr>
+                    <td>{{ employee.employee_id }}</td>
+                    <td>{{ employee.employee_code }}</td>
+                    <td>{{ employee.name }}</td>
+                    <td>{{ employee.experience_years }} years</td>
+                    <td>{{ employee.workload_percentage }}%</td>
+                    <td>
+                        <span class="status">
+                            {{ employee.availability }}
+                        </span>
+                    </td>
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</main>
+
+<footer>
+    <p>Cloud-Based Intelligent Skill-Mismatch Detection and Task Allocation System</p>
+</footer>
+
+</body>
+</html>

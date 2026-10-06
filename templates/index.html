@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SkillMatch - Intelligent Task Allocation</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+
+        <div class="logo">
+            SkillMatch
+        </div>
+
+        <div class="nav-links">
+            <a href="/">Dashboard</a>
+            <a href="/employees">Employees</a>
+            <a href="/tasks">Tasks</a>
+            <a href="/matching">Mismatch Detection</a>
+            <a href="/allocations">Task Allocation</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Main Dashboard -->
+    <main class="container">
+
+        <section class="hero">
+
+            <p class="tag">
+                CLOUD-BASED INTELLIGENT SYSTEM
+            </p>
+
+            <h1>
+                Skill-Mismatch Detection
+                <br>
+                & Task Allocation
+            </h1>
+
+            <p class="description">
+                Identify skill gaps, detect mismatches between employees
+                and tasks, and recommend the most suitable team member
+                for each task.
+            </p>
+
+        </section>
+
+
+        <!-- Dashboard Cards -->
+        <section class="cards">
+
+            <div class="card">
+                <h2>10</h2>
+                <p>Employees</p>
+            </div>
+
+            <div class="card">
+                <h2>10</h2>
+                <p>Tasks</p>
+            </div>
+
+            <div class="card">
+                <h2>0</h2>
+                <p>Skill Mismatches</p>
+            </div>
+
+            <div class="card">
+                <h2>0</h2>
+                <p>Allocations</p>
+            </div>
+
+        </section>
+
+
+        <!-- Main Features -->
+        <section class="features">
+
+            <div class="feature-card">
+
+                <h2>👥 Employee Management</h2>
+
+                <p>
+                    Manage employee experience, workload,
+                    availability and skills.
+                </p>
+
+                <a href="/employees" class="button">
+                    View Employees
+                </a>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h2>📋 Task Management</h2>
+
+                <p>
+                    Create project tasks and define their
+                    required skills and priorities.
+                </p>
+
+                <a href="/tasks" class="button">
+                    View Tasks
+                </a>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h2>🔍 Skill Mismatch Detection</h2>
+
+                <p>
+                    Compare employee skills with task
+                    requirements and identify missing skills.
+                </p>
+
+                <a href="/matching" class="button">
+                    Detect Mismatch
+                </a>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <h2>🎯 Task Recommendation</h2>
+
+                <p>
+                    Calculate a weighted score and recommend
+                    the most suitable employee.
+                </p>
+
+                <a href="/allocations" class="button">
+                    Recommend Employee
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- Project Workflow -->
+        <section class="workflow">
+
+            <h2>System Workflow</h2>
+
+            <div class="workflow-steps">
+
+                <div>
+                    <span>01</span>
+                    <p>Employee Skills</p>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div>
+                    <span>02</span>
+                    <p>Task Requirements</p>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div>
+                    <span>03</span>
+                    <p>Skill Matching</p>
+                </div>
+
+                <div class="arrow">→</div>
+
+                <div>
+                    <span>04</span>
+                    <p>Task Allocation</p>
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+        <p>
+            Cloud-Based Intelligent Skill-Mismatch Detection and Task Allocation System
+        </p>
+
+        <p>
+            Agile Development & DevOps Project
+        </p>
+    </footer>
+
+</body>
+</html>

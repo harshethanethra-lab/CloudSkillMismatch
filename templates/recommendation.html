@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Employee Recommendation - SkillMatch</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <!-- ==========================================
+         NAVIGATION
+         ========================================== -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            SkillMatch
+        </div>
+
+        <div class="nav-links">
+
+            <a href="/">
+                Dashboard
+            </a>
+
+            <a href="/employees">
+                Employees
+            </a>
+
+            <a href="/tasks">
+                Tasks
+            </a>
+
+            <a href="/matching">
+                Mismatch Detection
+            </a>
+
+            <a href="/recommendation">
+                Recommendation
+            </a>
+
+            <a href="/allocations">
+                Task Allocation
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+         ========================================== -->
+
+    <main class="page-container">
+
+        <div class="page-header">
+
+            <h1>
+                Employee Recommendation
+            </h1>
+
+            <p>
+                Best employee recommended for each task
+                using skill, experience and availability.
+            </p>
+
+        </div>
+
+
+        <!-- ==========================================
+             RECOMMENDATION TABLE
+             ========================================== -->
+
+        <div class="table-card">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Employee
+                        </th>
+
+                        <th>
+                            Task
+                        </th>
+
+                        <th>
+                            Skill Match
+                        </th>
+
+                        <th>
+                            Experience Score
+                        </th>
+
+                        <th>
+                            Availability
+                        </th>
+
+                        <th>
+               
+
+                </thead>
+
+
+                <tbody>
+
+                    {% for employee in recommendations %}
+
+                    <tr>
+
+                        <td>
+
+                            <strong>
+                                {{ employee.employee_code }}
+                            </strong>
+
+                            -
+                            {{ employee.name }}
+
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ employee.task_code }}
+                            </strong>
+
+                            -
+                            {{ employee.task_name }}
+
+                        </td>
+
+
+                        <td>
+
+                            {{ employee.skill_match }}%
+
+                        </td>
+
+
+                        <td>
+
+                            {{ employee.experience_score }}%
+
+                        </td>
+
+
+                        <td>
+
+                            {{ employee.availability }}
+
+                        </td>
+
+
+                        <td>
+
+                            <strong>
+                                {{ employee.final_score }}%
+                            </strong>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- ==========================================
+             ALLOCATE BUTTON
+             ========================================== -->
+
+        <div styyle="margin-top: 25px; text-align: center;">
+
+            <form action="/allocate" method="POST">
+
+                <button type="submit"
+                        style="
+                        padding: 12px 25px;
+                        font-size: 16px;
+                        cursor: pointer;
+                        border: none;
+                        border-radius: 6px;
+                        background: #111827;
+                        color: white;
+                        ">
+
+                    Allocate Recommended Employees
+
+                </button>
+
+            </form>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ==========================================
+         FOOTER
+         ========================================== -->
+
+    <footer>
+
+        <p>
+            Cloud-Based Intelligent Skill-Mismatch Detection
+            and Task Allocation System
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
